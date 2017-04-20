@@ -23,6 +23,7 @@ public class Main{
         Scanner sc = new Scanner(System.in);
         int input = 0;
         while(input!=-1){
+        	input = sc.nextInt();
         	SoftPwm.softPwmWrite(1, input);
         	System.out.println("Set value "+input);
         }
