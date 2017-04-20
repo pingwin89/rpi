@@ -2,21 +2,14 @@ package pl.pawc.rpi;
 
 import java.util.Scanner;
 
-/*import com.pi4j.io.gpio.GpioController;
-import com.pi4j.io.gpio.GpioFactory;
-import com.pi4j.io.gpio.GpioPinDigitalOutput;
-import com.pi4j.io.gpio.PinState;
-import com.pi4j.io.gpio.RaspiPin;*/
-
 import com.pi4j.wiringpi.SoftPwm;
+import com.pi4j.wiringpi.Gpio;
 
 public class Main{
 
     public static void main(String[] args) throws InterruptedException {
 
-        //final GpioController gpio = GpioFactory.getInstance();
-        //final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyLED", PinState.LOW);
-        //pin.setShutdownOptions(true, PinState.LOW);
+    	Gpio.wiringPiSetup();
         System.out.println("Create softPWM on pin 1");
         SoftPwm.softPwmCreate(1, 0, 100);
 
@@ -30,6 +23,5 @@ public class Main{
         System.out.println("Exiting...");
         sc.close();
         SoftPwm.softPwmStop(1);
-        //gpio.shutdown();
     }
 }
